@@ -17,6 +17,7 @@ export function Home() {
   function handleAddTask(newTaskTitle: string) {
     if(!newTaskTitle){
       Alert.alert('Tá vazio!');
+      return
     }
     const data = {
       id: new Date().getTime(),
@@ -54,7 +55,7 @@ export function Home() {
       <MyTasksList 
         tasks={tasks} 
         onPress={handleMarkTaskAsDone} 
-        onLongPress={() => handleRemoveTask} 
+        onLongPress={handleRemoveTask} 
       />
     </>
   )
